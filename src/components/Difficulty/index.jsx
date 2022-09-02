@@ -1,26 +1,38 @@
 import React, { useState } from "react"
+import { connect } from 'react-redux'
+import { set_step } from '../../store/action'
+import { set_difficulty } from '../../store/action'
 
-const Difficulty = ({setStep, setDifficulty, difficulty}) => {
+const Difficulty = (props) => {
 
     const [isSelected, setIsSelected] = useState(false)
 
     const handleDifficulty = (index) => {
-        setDifficulty(index)
+        props.set_difficulty(index)
         setIsSelected(true)
     }
 
-    return(
+    return (
         <div className="difficulty">
             <div>
-                <button onClick={() => handleDifficulty(1)} className={difficulty === 1 ? 'difficulty_active' : ''}>EASY</button>
-                <button onClick={() => handleDifficulty(2)} className={difficulty === 2 ? 'difficulty_active' : ''}>MEDIUM</button>
-                <button onClick={() => handleDifficulty(3)} className={difficulty === 3 ? 'difficulty_active' : ''}>HARD</button>
+                <button onClick={() => handleDifficulty(1)} className={props.difficulty === 1 ? 'difficulty_active' : ''}>EASY</button>
+                <button onClick={() => handleDifficulty(2)} className={props.difficulty === 2 ? 'difficulty_active' : ''}>MEDIUM</button>
+                <button onClick={() => handleDifficulty(3)} className={props.difficulty === 3 ? 'difficulty_active' : ''}>HARD</button>
             </div>
             <div>
-                <button disabled={!isSelected} onClick={() => setStep(2)}>START</button>
+                <button disabled={!isSelected} onClick={() => props.set_step(2)}>START</button>
             </div>
         </div>
     )
 }
 
-export default Difficulty
+const mapDispatchToProps = (dispatch) => ({
+    set_step: (data) => dispatch(set_step(data)),
+    set_difficulty: (data) => dispatch(set_difficulty(data))
+})
+
+const mapStateToProps = (state) => ({
+    difficulty: state.data.difficulty
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Difficulty)

@@ -1,28 +1,28 @@
-import {useState} from "react"
+import { useState } from "react"
+import { connect } from "react-redux"
+
 import Instructions from "../../components/Instructions"
 import Difficulty from "../../components/Difficulty"
 import QuestionScreen from "../../components/QuestionScreen"
 import Summary from "../../components/Summary"
 
-const Home = () => {
+const Home = (props) => {
     const [step, setStep] = useState(0)
-    const [difficulty, setDifficulty] = useState(0)
 
-    return(
+    console.log('props home', props);
+
+    return (
         <div className="home">
-            {step === 0 && <Instructions setStep={setStep} />}
-            {step === 1 && <Difficulty
-                setStep={setStep}
-                difficulty={difficulty}
-                setDifficulty={setDifficulty}
-            />}
-            {step === 2 && <QuestionScreen
-                difficulty={difficulty}
-                setStep={setStep}
-            />}
-            {step === 3 && <Summary/>}
+            {props.step === 0 && <Instructions />}
+            {props.step === 1 && <Difficulty />}
+            {props.step === 2 && <QuestionScreen />}
+            {step === 3 && <Summary />}
         </div>
     )
 }
 
-export default Home
+const mapStateToProps = (state) => ({
+    step: state.data.step
+})
+
+export default connect(mapStateToProps, null)(Home)

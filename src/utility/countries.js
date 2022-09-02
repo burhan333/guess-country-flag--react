@@ -81,8 +81,7 @@ import Burundi from '../assets/images/flag-of-Burundi.png'
 import Tunisia from '../assets/images/flag-of-Tunisia.png'
 import Bolivia from '../assets/images/flag-of-Venezuela.png'
 
-export const Questions = [
-    {
+export const Questions = {
         easy: [
             {
                 countryFlag: China,
@@ -490,4 +489,3 @@ export const Questions = [
             }
         ]
     }
-]
