@@ -1,0 +1,28 @@
+.question
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_inner
+    {
+        text-align: center;
+    }
+
+    &_runner
+    {
+        width: 30px;
+        position: absolute;
+        // left: 80%;
+        top: 0;
+        // transform: translate(-100%, -50%);
+    }
+
+    &_timer
+    {
+        border-bottom: 2px solid black;
+        position: relative;
+        height: 30px;
+        overflow: hidden;
+    }
+}
