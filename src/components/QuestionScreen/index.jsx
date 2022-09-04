@@ -24,7 +24,7 @@ const QuestionScreen = (props) => {
                 finishQuestion()
             }
         }
-    }, [progress]);
+    }, [progress])
 
     useEffect(() => {
         interval = setInterval(() => {
@@ -34,24 +34,6 @@ const QuestionScreen = (props) => {
             clearInterval(interval)
         };
     }, [])
-
-    const nextQuestion = () => {
-        setQuestionNum(questionNum + 1)
-        setProgress(0)
-        setIsDisabled(true)
-    }
-
-    const finishQuestion = () => {
-        props.set_step(3)
-    }
-
-    const selectAnswer = (param) => {
-        if (param === questions[questionNum].correctAnswer) {
-            props.set_score(props.score + 1)
-        }
-        setIsDisabled(false)
-        clearInterval(interval)
-    }
 
     useEffect(() => {
         const index = props.difficulty - 1
@@ -78,21 +60,35 @@ const QuestionScreen = (props) => {
         }
     }, [])
 
+    const nextQuestion = () => {
+        setQuestionNum(questionNum + 1)
+        setProgress(0)
+        setIsDisabled(true)
+    }
+
+    const finishQuestion = () => {
+        props.set_step(3)
+    }
+
+    const selectAnswer = (param) => {
+        if (param === questions[questionNum].correctAnswer) {
+            props.set_score(props.score + 1)
+        }
+        setIsDisabled(false)
+        clearInterval(interval)
+    }
+
     return (
         <div className="question">
             <div className="question_inner">
                 <h1>{questionNum + 1} / 15</h1>
                 <div className="question_timer">
-                    {/* <img className='question_runner' src={Runner} alt="" /> */}
                     <img className='question_runner' src={Runner} alt="" style={{ left: `${progress}%` }} />
                 </div>
                 <img src={questions[questionNum]?.countryFlag} alt="" />
                 {questions[questionNum]?.options.map((item, index) => (
                     <button disabled={!isDisabled} key={index} onClick={() => selectAnswer(item)} >{item}</button>
                 ))}
-                {/* <button>{questions[questionNum]?.options[1]}</button>
-                <button>{questions[questionNum]?.options[2]}</button>
-                <button>{questions[questionNum]?.options[3]}</button> */}
                 <div>{questionNum < 14 ? <button onClick={nextQuestion} disabled={isDisabled}>next</button> : <button onClick={finishQuestion} disabled={isDisabled}>Finish</button>}</div>
             </div>
         </div>
