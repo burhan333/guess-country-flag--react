@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/styles/app.scss'
 
 const Home = lazy(() => {

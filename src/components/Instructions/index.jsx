@@ -5,11 +5,13 @@ import { set_step } from '../../store/action'
 const Instructions = (props) => {
 
     return (
-        <React.Fragment>
-            <h1>INSTRUCTIONS</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, magnam provident voluptas aliquid fuga quibusdam saepe rem voluptatum odit error.</p>
-            <button onClick={() => props.set_step(1)}>OKAY</button>
-        </React.Fragment>
+        <div className="home">
+            <div className="home_inner">
+                <p className="home_title">Welcome</p>
+                <p className="home_desc">This application is about identifying the flags of different countries. By using this application you can increase your knowledge about flags of different countries</p>
+                <button className="home_btn" onClick={() => props.set_step(1)}>GET STARTED</button>
+            </div>
+        </div>
     )
 }
 
