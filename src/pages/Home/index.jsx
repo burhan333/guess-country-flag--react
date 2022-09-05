@@ -1,3 +1,4 @@
+import React from "react"
 import { connect } from "react-redux"
 
 import Instructions from "../../components/Instructions"
@@ -8,12 +9,12 @@ import Summary from "../../components/Summary"
 const Home = (props) => {
 
     return (
-        <div className="home">
+        <React.Fragment>
             {props.step === 0 && <Instructions />}
             {props.step === 1 && <Difficulty />}
             {props.step === 2 && <QuestionScreen />}
             {props.step === 3 && <Summary />}
-        </div>
+        </React.Fragment>
     )
 }
 

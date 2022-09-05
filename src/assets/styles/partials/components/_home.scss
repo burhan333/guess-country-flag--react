@@ -1,0 +1,35 @@
+.home
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    min-height: 100vh;
+    text-align: center;
+
+    &_title
+    {
+        font-size: 60px;
+        font-weight: 600;
+        color: $secondary;
+    }
+
+    &_desc
+    {
+        font-size: 22px;
+        color: $primary;
+        max-width: 900px;
+    }
+
+    &_btn
+    {
+        width: 200px;
+        height: 50px;
+        border: none;
+        background-color: $secondary;
+        color: white;
+        font-weight: 400;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+}
