@@ -31,5 +31,15 @@
         color: white;
         font-weight: 400;
         border-radius: 5px;
+        border: 2px solid transparent;
+        font-weight: 500;
+    }
+
+    &_btn:hover
+    {
+        background-color: transparent;
+        color: $secondary;
+        border: 2px solid $secondary;
+        font-weight: 500;
     }
 }

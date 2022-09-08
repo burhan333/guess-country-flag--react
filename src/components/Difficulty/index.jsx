@@ -22,7 +22,7 @@ const Difficulty = (props) => {
                     <button onClick={() => handleDifficulty(3)} className={props.difficulty === 3 ? 'difficulty_active' : ''}>HARD</button>
                 </div>
                 <div>
-                    <button disabled={!isSelected} onClick={() => props.set_step(2)}>START</button>
+                    <button className="difficulty_start" disabled={!isSelected} onClick={() => props.set_step(2)}>START</button>
                 </div>
             </div>
         </div>

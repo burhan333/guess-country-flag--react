@@ -1,6 +1,8 @@
 const Loader = () => {
-    return(
-        <h1>LOADING....</h1>
+    return (
+        <div className="loader">
+            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
     )
 }
 
