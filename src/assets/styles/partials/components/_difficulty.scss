@@ -35,17 +35,57 @@
 
     &_btns
     {
-        margin: 25px 0;
+        margin: 35px 0;
 
         button
         {
-            width: 200px;
+            width: 160px;
             height: 50px;
-            border: none;
-            background-color: $secondary;
+            background-color: #e5bf9f;
+            border: transparent;
             color: white;
             font-weight: 400;
             border-radius: 5px;
+            margin: 10px;
         }
+
+        button:hover
+        {
+            background-color: transparent !important;
+            color: $secondary;
+            border: 2px solid $secondary;
+            font-weight: 500;
+        }
+    }
+
+    &_active
+    {
+        background-color: $secondary  !important;
+    }
+
+    &_start
+    {
+        width: 160px;
+        height: 50px;
+        border: none;
+        background-color: $primary;
+        border: transparent;
+        color: white;
+        font-weight: 400;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    &_start:hover
+    {
+        background-color: transparent;
+        color: $primary;
+        border: 2px solid $primary;
+        font-weight: 500;
+    }
+
+    &_start:disabled
+    {
+        background-color: #718789;
     }
 }
