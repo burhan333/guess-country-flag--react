@@ -1,9 +1,51 @@
 .difficulty
 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    min-height: 100vh;
+
+    &_inner
+    {
+        width: 600px;
+        box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+        border-radius: 10px;
+        text-align: center;
+        padding: 50px 20px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // max-height: 500px;
+    }
+
     &_active
     {
         font-weight: 600;
         background-color: black;
         color: white;
+    }
+
+    &_title
+    {
+        font-size: 20px;
+        color: $secondary;
+        font-weight: 500;
+    }
+
+    &_btns
+    {
+        margin: 25px 0;
+
+        button
+        {
+            width: 200px;
+            height: 50px;
+            border: none;
+            background-color: $secondary;
+            color: white;
+            font-weight: 400;
+            border-radius: 5px;
+        }
     }
 }

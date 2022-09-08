@@ -14,13 +14,16 @@ const Difficulty = (props) => {
 
     return (
         <div className="difficulty">
-            <div>
-                <button onClick={() => handleDifficulty(1)} className={props.difficulty === 1 ? 'difficulty_active' : ''}>EASY</button>
-                <button onClick={() => handleDifficulty(2)} className={props.difficulty === 2 ? 'difficulty_active' : ''}>MEDIUM</button>
-                <button onClick={() => handleDifficulty(3)} className={props.difficulty === 3 ? 'difficulty_active' : ''}>HARD</button>
-            </div>
-            <div>
-                <button disabled={!isSelected} onClick={() => props.set_step(2)}>START</button>
+            <div className="difficulty_inner">
+                <p className="difficulty_title">SELECT DIFFICULTY</p>
+                <div className="difficulty_btns">
+                    <button onClick={() => handleDifficulty(1)} className={props.difficulty === 1 ? 'difficulty_active' : ''}>EASY</button>
+                    <button onClick={() => handleDifficulty(2)} className={props.difficulty === 2 ? 'difficulty_active' : ''}>MEDIUM</button>
+                    <button onClick={() => handleDifficulty(3)} className={props.difficulty === 3 ? 'difficulty_active' : ''}>HARD</button>
+                </div>
+                <div>
+                    <button disabled={!isSelected} onClick={() => props.set_step(2)}>START</button>
+                </div>
             </div>
         </div>
     )
