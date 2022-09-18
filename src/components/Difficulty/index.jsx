@@ -3,9 +3,12 @@ import { connect } from 'react-redux'
 import { set_step } from '../../store/action'
 import { set_difficulty } from '../../store/action'
 
+import InstructionModal from "../Modals/InstructionModal"
+
 const Difficulty = (props) => {
 
     const [isSelected, setIsSelected] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
     const handleDifficulty = (index) => {
         props.set_difficulty(index)
@@ -22,9 +25,10 @@ const Difficulty = (props) => {
                     <button onClick={() => handleDifficulty(3)} className={props.difficulty === 3 ? 'difficulty_active' : ''}>HARD</button>
                 </div>
                 <div>
-                    <button className="difficulty_start" disabled={!isSelected} onClick={() => props.set_step(2)}>START</button>
+                    <button className="difficulty_start" disabled={!isSelected} onClick={() => setShowModal(true)}>START</button>
                 </div>
             </div>
+            {showModal && <InstructionModal />}
         </div>
     )
 }
