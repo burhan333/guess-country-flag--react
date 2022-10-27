@@ -3,26 +3,131 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    padding: 20px 0;
 
     &_inner
     {
         text-align: center;
+        box-shadow: 0 0 25px rgb(0 0 0 / 20%);
+        border-radius: 10px;
+        padding: 20px;
+        width: 650px;
+
+        h1
+        {
+            color: $primary;
+            word-spacing: -8px;
+        }
     }
 
     &_runner
     {
         width: 30px;
         position: absolute;
-        // left: 80%;
         top: 0;
-        // transform: translate(-100%, -50%);
     }
 
     &_timer
     {
-        border-bottom: 2px solid black;
+        border-bottom: 5px solid $primary;
         position: relative;
-        height: 30px;
+        height: 35px;
         overflow: hidden;
+        margin: 20px 0;
+    }
+
+    &_flag
+    {
+        width: 200px;
+        height: 130px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 50px auto;
+        box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+
+        img
+        {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+
+    &_btns
+    {
+        margin: 10px auto;
+        display: flex;
+        flex-wrap: wrap;
+        width: 400px;
+        justify-content: space-between;
+
+        button
+        {
+            width: 48%;
+            height: 50px;
+            background-color: #e5bf9f;
+            border: transparent;
+            color: white;
+            font-weight: 400;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        button:hover
+        {
+            background-color: transparent !important;
+            color: $secondary;
+            border: 2px solid $secondary;
+            font-weight: 500;
+        }
+    }
+
+    &_next
+    {
+        width: 160px;
+        height: 50px;
+        border: none;
+        background-color: $primary;
+        border: transparent;
+        color: white;
+        font-weight: 400;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    &_next:hover
+    {
+        background-color: transparent;
+        color: $primary;
+        border: 2px solid $primary;
+        font-weight: 500;
+    }
+
+    &_next:disabled
+    {
+        background-color: #718789;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .question
+    {
+        &_inner
+        {
+            width: 100%;
+            padding: 20px 10px;
+        }
+
+        &_btns
+        {
+            width: 340px;
+
+            button
+            {
+                font-size: 14px;
+            }
+        }
     }
 }

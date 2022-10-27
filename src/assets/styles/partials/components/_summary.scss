@@ -1,0 +1,38 @@
+.summary
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 15px 0;
+
+    &_inner
+    {
+        text-align: center;
+    }
+
+    button
+    {
+        width: 160px;
+        height: 50px;
+        background-color: $primary;
+        border: transparent;
+        color: white;
+        font-weight: 400;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    button:hover
+    {
+        background-color: transparent;
+        color: $primary;
+        border: 2px solid $primary;
+        font-weight: 500;
+    }
+
+    h2
+    {
+        margin: 20px 0;
+    }
+}

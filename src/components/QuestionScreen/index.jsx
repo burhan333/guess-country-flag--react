@@ -29,7 +29,7 @@ const QuestionScreen = (props) => {
     useEffect(() => {
         interval = setInterval(() => {
             setProgress((prev) => prev + 1);
-        }, 100);
+        }, 100000);
         return () => {
             clearInterval(interval)
         };
@@ -85,11 +85,15 @@ const QuestionScreen = (props) => {
                 <div className="question_timer">
                     <img className='question_runner' src={Runner} alt="" style={{ left: `${progress}%` }} />
                 </div>
-                <img src={questions[questionNum]?.countryFlag} alt="" />
-                {questions[questionNum]?.options.map((item, index) => (
-                    <button disabled={!isDisabled} key={index} onClick={() => selectAnswer(item)} >{item}</button>
-                ))}
-                <div>{questionNum < 14 ? <button onClick={nextQuestion} disabled={isDisabled}>next</button> : <button onClick={finishQuestion} disabled={isDisabled}>Finish</button>}</div>
+                <div className="question_flag">
+                    <img src={questions[questionNum]?.countryFlag} alt="" />
+                </div>
+                <div className="question_btns">
+                    {questions[questionNum]?.options.map((item, index) => (
+                        <button disabled={!isDisabled} key={index} onClick={() => selectAnswer(item)} >{item}</button>
+                    ))}
+                </div>
+                <div>{questionNum < 14 ? <button className='question_next' onClick={nextQuestion} disabled={isDisabled}>NEXT</button> : <button className='question_next' onClick={finishQuestion} disabled={isDisabled}>FINISH</button>}</div>
             </div>
         </div>
     )
