@@ -1,23 +1,20 @@
 import React from "react"
 import { connect } from "react-redux"
-// import { set_step } from "../../store/action"
 
 const Summary = (props) => {
 
     const score = Math.round(props.score * 100 / 15)
 
     return (
-        <React.Fragment>
-            <h1>You have Scored</h1>
-            <h2>{score}%</h2>
-            <button onClick={() => window.location.reload()} >BACK TO HOME</button>
-        </React.Fragment>
+        <div className="summary">
+            <div className="summary_inner">
+                <h1>You have Scored</h1>
+                <h2>{score}%</h2>
+                <button onClick={() => window.location.reload()} >BACK TO HOME</button>
+            </div>
+        </div>
     )
 }
-
-// const mapDispatchToProps = (dispatch) => ({
-//     set_step: (data) => dispatch(set_step(data))
-// })
 
 const mapStateToProps = (state) => ({
     step: state.data.step,
