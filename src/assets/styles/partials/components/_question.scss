@@ -54,6 +54,11 @@
         }
     }
 
+    &_selected
+    {
+        background-color: $primary !important;
+    }
+
     &_btns
     {
         margin: 10px auto;

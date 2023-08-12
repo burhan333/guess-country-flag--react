@@ -13,6 +13,7 @@ const QuestionScreen = (props) => {
     const [questions, setQuestions] = useState([])
     const [progress, setProgress] = useState(0)
     const [isDisabled, setIsDisabled] = useState(true)
+    const [clickIndex, setClickIndex] = useState(-1)
     let interval;
 
     useEffect(() => {
@@ -27,15 +28,17 @@ const QuestionScreen = (props) => {
     }, [progress])
 
     useEffect(() => {
+        schuffleQuestions()
+
         interval = setInterval(() => {
             setProgress((prev) => prev + 1);
-        }, 100000);
+        }, 100);
         return () => {
             clearInterval(interval)
         };
     }, [])
 
-    useEffect(() => {
+    const schuffleQuestions = () => {
         const index = props.difficulty - 1
         if (index === 0) {
             const shuffle = Questions.easy.sort(() => Math.random() - 0.5)
@@ -58,22 +61,24 @@ const QuestionScreen = (props) => {
             })
             setQuestions(shuffle)
         }
-    }, [])
+    }
 
     const nextQuestion = () => {
         setQuestionNum(questionNum + 1)
         setProgress(0)
         setIsDisabled(true)
+        setClickIndex(-1)
     }
 
     const finishQuestion = () => {
         props.set_step(3)
     }
 
-    const selectAnswer = (param) => {
+    const selectAnswer = (param, index) => {
         if (param === questions[questionNum].correctAnswer) {
             props.set_score(props.score + 1)
         }
+        setClickIndex(index)
         setIsDisabled(false)
         clearInterval(interval)
     }
@@ -90,7 +95,7 @@ const QuestionScreen = (props) => {
                 </div>
                 <div className="question_btns">
                     {questions[questionNum]?.options.map((item, index) => (
-                        <button disabled={!isDisabled} key={index} onClick={() => selectAnswer(item)} >{item}</button>
+                        <button className={index === clickIndex ? 'question_selected' : null} disabled={!isDisabled} key={index} onClick={() => selectAnswer(item, index)}>{item}</button>
                     ))}
                 </div>
                 <div>{questionNum < 14 ? <button className='question_next' onClick={nextQuestion} disabled={isDisabled}>NEXT</button> : <button className='question_next' onClick={finishQuestion} disabled={isDisabled}>FINISH</button>}</div>
