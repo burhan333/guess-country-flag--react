@@ -1,0 +1,149 @@
+.login
+{
+    background-color: $bg;
+    min-height: 100vh;
+
+    &_top
+    {
+        padding: 20px 30px;
+
+        img
+        {
+            width: 200px;
+        }
+    }
+
+    &_body
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    &_box
+    {
+        width: 400px;
+        background: white;
+        padding: 20px 25px 40px;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgb(0 0 0 / 10%);
+    }
+
+    &_title
+    {
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        margin: 10px 0 30px;
+    }
+
+    input
+    {
+        width: 100%;
+        background: #ececec;
+        border: none;
+        height: 50px;
+        border-radius: 5px;
+        padding-left: 20px;
+        outline: none;
+        margin-bottom: 30px;
+        color: gray;
+    }
+
+    label
+    {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: $primary;
+    }
+
+    button
+    {
+        font-size: 14px;
+        position: relative;
+        transform: translateX(-50%);
+        left: 50%;
+        width: 120px;
+        border: none;
+        height: 45px;
+        background: $secondary;
+        border-radius: 30px;
+        color: white;
+        transition: 0.3s ease-in-out;
+        margin-top: 20px;
+    }
+
+    button.left
+    {
+        transform: translateX(0%);
+        left: 0;
+    }
+
+    button.right
+    {
+        transform: translateX(0%);
+        left: 65%;
+    }
+
+    button:hover
+    {
+        background: $primary;
+        transition: 0.3s ease-in-out;
+    }
+
+    &_btn
+    {
+        display: flex;
+        transition: 0.5s ease-in-out all;
+    }
+
+    &_btn.center
+    {
+        justify-content: center;
+    }
+
+    &_btn.left
+    {
+        justify-content: flex-start;
+    }
+
+    &_btn.right
+    {
+        justify-content: flex-end;
+    }
+
+    &_logo
+    {
+        width: 180px;
+    }
+
+    &_err
+    {
+        text-align: center;
+        color: red;
+    }
+}
+
+@media (max-width: 991px)
+{
+    .login
+    {
+        &_top
+        {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        &_logo
+        {
+            width: 170px;
+        }
+
+        &_box
+        {
+            width: 320px;
+        }
+    }
+}
