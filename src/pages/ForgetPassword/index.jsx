@@ -1,46 +1,45 @@
 import { useState } from "react"
-// import { HttpService } from '../../services/HttpService'
- 
+import { HttpService } from '../../services/HttpService'
+import { alert } from "../../helpers"
+
 const ForgetPassword = () => {
 
-    // const httpService = new HttpService()
+    const httpService = new HttpService()
     const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
     const [err, setErr] = useState(false)
     const [btnClass, setBtnClass] = useState('')
 
     const handleLogin = async () => {
 
-        if (email === 'admin' && pass === 'ADMIN') {
-            localStorage.setItem('isLoggedIn', true)
-            window.location.reload()
+        const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
+        const isValidEmail = emailRegex.test(email)
+
+        if (!isValidEmail) {
+            setErr('Invalid Email')
         }
+
         else {
-            setErr('Login Failed')
+            const data = {
+                email
+            }
+    
+            try {
+                const response = await httpService.forgetPassword(data)
+                if (response.data.status === 'Success') {
+                    alert('success', 'Verification email sent to your email address', 10000)
+                }
+            }
+            catch(error) {
+                console.log('error in login', error)
+                if (error?.response?.data?.message === 'Invalid Email') {
+                    alert('error', 'Email does not exist')
+                }
+                else {
+                    console.log('error in login', error)
+                    setErr('Something Went Wrong')
+                }
+            }
         }
-
-        // const data = {
-        //     username: email,
-        //     password: pass
-        // }
-
-        // try {
-        //     const response = await httpService.login(data)
-        //     if (response.data.message === 'Login successful') {
-        //         localStorage.setItem('isLoggedIn', true)
-        //         localStorage.setItem('token', response.data.token)
-        //         window.location.reload()
-        //     }
-        // }
-        // catch(error) {
-        //     if (error?.response?.data?.message === 'Login failed') {
-        //         setErr(error.response.data.message)
-        //     }
-        //     else {
-        //         console.log('error in login', error)
-        //         setErr('Something Went Wrong')
-        //     }
-        // }
     }
 
     const handleEnter = (e) => {

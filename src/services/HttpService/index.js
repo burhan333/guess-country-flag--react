@@ -16,4 +16,14 @@ export class HttpService {
         const response = axios.post(`${API_URL}/auth/signup`, data)
         return response
     }
+
+    forgetPassword = (data) => {
+        const response = axios.post(`${API_URL}/auth/forgetPassword`, data)
+        return response
+    }
+
+    resetPassword = (data) => {
+        const response = axios.post(`${API_URL}/auth/resetPassword`, data)
+        return response
+    }
 }
