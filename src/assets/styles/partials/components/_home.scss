@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 40px 20px 20px;
     min-height: 100vh;
     text-align: center;
 
@@ -41,5 +41,21 @@
         color: $secondary;
         border: 2px solid $secondary;
         font-weight: 500;
+    }
+}
+
+@media (max-width: 575px)
+{
+    .home
+    {
+        &_title
+        {
+            font-size: 40px;
+        }
+
+        &_desc
+        {
+            font-size: 16px;
+        }
     }
 }

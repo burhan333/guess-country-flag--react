@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { set_step } from '../../store/action'
 import { set_difficulty } from '../../store/action'
 
+import Navbar from "../Navbar"
 import InstructionModal from "../Modals/InstructionModal"
 
 const Difficulty = (props) => {
@@ -17,6 +18,7 @@ const Difficulty = (props) => {
 
     return (
         <div className="difficulty">
+            <Navbar />
             <div className="difficulty_inner">
                 <p className="difficulty_title">SELECT DIFFICULTY</p>
                 <div className="difficulty_btns">

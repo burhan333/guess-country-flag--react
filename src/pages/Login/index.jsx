@@ -1,9 +1,11 @@
 import { useState } from "react"
-// import { HttpService } from '../../services/HttpService'
+import { Link } from "react-router-dom"
+import { HttpService } from '../../services/HttpService'
+import { alert } from "../../helpers"
  
 const Login = () => {
 
-    // const httpService = new HttpService()
+    const httpService = new HttpService()
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     const [err, setErr] = useState(false)
@@ -11,36 +13,43 @@ const Login = () => {
 
     const handleLogin = async () => {
 
-        if (email === 'admin' && pass === 'ADMIN') {
-            localStorage.setItem('isLoggedIn', true)
-            window.location.reload()
+        const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
+        const isValidEmail = emailRegex.test(email)
+
+        if (!isValidEmail) {
+            setErr('Invalid Email')
         }
+
+        else if (pass.length < 6) {
+            setErr('Password should be atleast 6 character')
+        }
+
         else {
-            setErr('Login Failed')
+            const data = {
+                email: email,
+                password: pass
+            }
+    
+            try {
+                setErr('')
+                const response = await httpService.login(data)
+                if (response.data.status === 'Success') {
+                    localStorage.setItem('isLoggedIn', true)
+                    localStorage.setItem('token', response.data.token)
+                    localStorage.setItem('userId', response.data._id)
+                    window.location.reload()
+                }
+            }
+            catch(error) {
+                if (error?.response?.data?.message === 'Auth Failed') {
+                    alert('error', 'Invalid email or password')
+                }
+                else {
+                    console.log('error in login', error)
+                    alert('error', 'Something Went Wrong')
+                }
+            }
         }
-
-        // const data = {
-        //     username: email,
-        //     password: pass
-        // }
-
-        // try {
-        //     const response = await httpService.login(data)
-        //     if (response.data.message === 'Login successful') {
-        //         localStorage.setItem('isLoggedIn', true)
-        //         localStorage.setItem('token', response.data.token)
-        //         window.location.reload()
-        //     }
-        // }
-        // catch(error) {
-        //     if (error?.response?.data?.message === 'Login failed') {
-        //         setErr(error.response.data.message)
-        //     }
-        //     else {
-        //         console.log('error in login', error)
-        //         setErr('Something Went Wrong')
-        //     }
-        // }
     }
 
     const handleEnter = (e) => {
@@ -75,6 +84,14 @@ const Login = () => {
                     <input type="password" placeholder="Password" onKeyDown={(e) => handleEnter(e)} onChange={(e) => setPass(e.target.value)} />
                     {err && <p className="login_err">{err}</p>}
                     <button className={btnClass} onMouseEnter={handleHover} onClick={handleLogin} >LOGIN</button>
+                    <div className="login_forget">
+                        <div>
+                            <Link to="/forget">Forget Password ?</Link>
+                        </div>
+                        <div>
+                            <Link to="/signup">Don't have an account ? Signup.</Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

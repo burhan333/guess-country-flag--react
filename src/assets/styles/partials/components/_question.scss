@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 20px 0;
+    padding: 40px 20px 20px;
 
     &_inner
     {
@@ -119,6 +119,8 @@
 {
     .question
     {
+        padding: 40px 0px 20px;
+        
         &_inner
         {
             width: 100%;

@@ -25,7 +25,7 @@
     {
         width: 400px;
         background: white;
-        padding: 20px 25px 40px;
+        padding: 10px 25px 30px;
         border-radius: 15px;
         box-shadow: 0 0 25px rgb(0 0 0 / 10%);
     }
@@ -43,11 +43,11 @@
         width: 100%;
         background: #ececec;
         border: none;
-        height: 50px;
+        height: 45px;
         border-radius: 5px;
         padding-left: 20px;
         outline: none;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         color: gray;
     }
 
@@ -72,7 +72,7 @@
         border-radius: 30px;
         color: white;
         transition: 0.3s ease-in-out;
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
     button.left
@@ -123,6 +123,24 @@
     {
         text-align: center;
         color: red;
+    }
+    
+    &_forget
+    {
+        margin-top: 20px;
+        text-align: center;
+
+        a
+        {
+            text-decoration: none;
+            color: gray;
+            font-size: 12px;
+        }
+
+        a:hover
+        {
+            color: darkgray;
+        }
     }
 }
 

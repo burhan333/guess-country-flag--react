@@ -1,0 +1,51 @@
+.welcome
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    &_btns
+    {
+        display: flex;
+
+        a
+        {
+            width: 200px;
+            padding: 12px 0;
+            border: none;
+            background-color: $secondary;
+            color: white;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            font-weight: 500;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    
+        a:hover
+        {
+            background-color: transparent;
+            color: $secondary;
+            border: 2px solid $secondary;
+            font-weight: 500;
+        }
+    }
+}
+
+@media (max-width: 575px)
+{
+    .welcome
+    {
+        &_btns
+        {
+            a
+            {
+                width: 150px;
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -59,7 +59,7 @@ const ForgetPassword = () => {
             }
         }
 
-        if (!pass || !email) {
+        if (!email) {
             toggleClass()
         }
     }
