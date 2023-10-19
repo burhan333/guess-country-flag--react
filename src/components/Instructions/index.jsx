@@ -1,4 +1,5 @@
 import React from "react"
+import Navbar from "../Navbar"
 import { connect } from "react-redux"
 import { set_step } from '../../store/action'
 
@@ -6,6 +7,7 @@ const Instructions = (props) => {
 
     return (
         <div className="home">
+            <Navbar />
             <div className="home_inner">
                 <p className="home_title">Welcome</p>
                 <p className="home_desc">This application is about identifying the flags of different countries. By using this application you can increase your knowledge about flags of different countries</p>

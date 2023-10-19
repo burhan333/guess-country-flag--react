@@ -1,20 +1,20 @@
-import { lazy, Suspense } from "react";
-import Loader from "./components/Loader";
+import { ToastContainer } from 'react-toastify'
+import { MyRoutes } from './routes';
+
+
+import "react-toastify/dist/ReactToastify.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/styles/app.scss'
 
-const Home = lazy(() => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(import('./pages/Leaderboard')), 800);
-    });
-});
+
 
 function App() {
 
   return (
-      <Suspense fallback={<Loader/>}>
-          <Home/>
-      </Suspense>
+    <div className="App">
+        <MyRoutes/>
+        <ToastContainer />
+    </div>
     );
 }
 

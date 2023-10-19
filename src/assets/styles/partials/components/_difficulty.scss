@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 40px 20px 20px;
     min-height: 100vh;
 
     &_inner
@@ -83,5 +83,20 @@
     &_start:disabled
     {
         background-color: #718789;
+    }
+}
+
+@media (max-width: 575px)
+{
+    .difficulty
+    {
+        &_inner
+        {
+            padding: 30px 20px;
+        }
+
+        &_btns {
+            margin: 15px 0;
+        }
     }
 }

@@ -5,6 +5,8 @@ import { set_difficulty } from '../../store/action'
 import { set_score } from '../../store/action'
 import { Questions } from '../../utility/countries'
 
+import Navbar from "../Navbar"
+
 import Runner from '../../assets/images/runner.gif'
 
 const QuestionScreen = (props) => {
@@ -85,6 +87,7 @@ const QuestionScreen = (props) => {
 
     return (
         <div className="question">
+            <Navbar />
             <div className="question_inner">
                 <h1>{questionNum + 1} / 15</h1>
                 <div className="question_timer">

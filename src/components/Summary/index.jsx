@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import Navbar from "../Navbar"
 
 const Summary = (props) => {
 
@@ -7,6 +8,7 @@ const Summary = (props) => {
 
     return (
         <div className="summary">
+            <Navbar />
             <div className="summary_inner">
                 <h1>You have Scored</h1>
                 <h2>{score}%</h2>

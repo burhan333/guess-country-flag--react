@@ -1,0 +1,67 @@
+.confirm
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+
+    &_inner
+    {
+        width: 500px;
+        border-radius: 20px;
+        background-color: white;
+        padding: 25px;
+        position: relative;
+    }
+
+    &_title
+    {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 500;
+        color: $secondary;
+        margin: 20px 0;
+    }
+
+    &_close
+    {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    &_btn
+    {
+        text-align: center;
+        margin-top: 10px;
+
+        button
+        {
+            width: 160px;
+            height: 50px;
+            background-color: #e5bf9f;
+            border: transparent;
+            color: white;
+            font-weight: 400;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button:hover
+        {
+            background-color: transparent !important;
+            color: $secondary;
+            border: 2px solid $secondary;
+            font-weight: 500;
+        }
+    }
+}

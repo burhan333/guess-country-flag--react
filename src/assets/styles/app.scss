@@ -4,6 +4,9 @@
 
 // MODALS
 @import './partials/modals/infoModal';
+@import './partials/modals/editProfileModal';
+@import './partials/modals/confirmModal';
+@import './partials/modals/userHistoryModal';
 
 // COMPONENTS
 @import './partials/components/difficulty';
@@ -11,7 +14,10 @@
 @import './partials/components/home';
 @import './partials/components/loader';
 @import './partials/components/summary';
+@import './partials/components/navbar';
 
 // PAGES
 @import './partials/pages/login';
 @import './partials/pages/leader';
+@import './partials/pages/profile';
+@import './partials/pages/welcome';

@@ -1,0 +1,25 @@
+.navBar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+
+    &_link
+    {
+        font-size: 14px;
+        color: $secondary;
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    &_link:hover
+    {
+        color: $primary;
+    }
+}

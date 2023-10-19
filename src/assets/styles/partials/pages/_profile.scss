@@ -1,0 +1,107 @@
+.profile
+{
+    background-color: $bg;
+    min-height: 100vh;
+    padding: 20px 20px;
+
+    &_title
+    {
+        font-size: 35px;
+        font-weight: 600;
+        text-align: center;
+        color: $primary;
+    }
+
+    &_info
+    {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+
+        > div
+        {
+            width: 50%;
+        }
+
+        p:last-child
+        {
+            font-size: 22px;
+            font-weight: 500;
+        }
+    }
+
+    &_score
+    {
+        margin-top: 50px;
+
+        > div
+        {
+            display: flex;
+            justify-content: space-between;
+
+            div
+            {
+                width: 33%;
+
+                p:last-of-type
+                {
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    &_scoreHeading
+    {
+        width: 100%;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    &_btn
+    {
+        padding: 8px 25px;
+        border: none;
+        background-color: $secondary;
+        color: white;
+        font-weight: 400;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        font-weight: 500;
+        margin-right: 15px;
+    }
+
+    &_btn:hover
+    {
+        background-color: transparent;
+        color: $secondary;
+        border: 2px solid $secondary;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 575px)
+{
+    .profile
+    {
+        padding: 20px 5px;
+
+        &_info
+        {
+            margin-top: 20px;
+
+            p:last-child 
+            {
+                font-size: 18px;
+            }
+        }
+
+        &_btn
+        {
+            padding: 6px 18px;
+            font-size: 14px;
+        }
+    }
+}
