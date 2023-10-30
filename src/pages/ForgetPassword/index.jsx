@@ -10,7 +10,7 @@ const ForgetPassword = () => {
     const [isDisabled, setIsDisabled] = useState(false)
     const [btnClass, setBtnClass] = useState('')
 
-    const handleLogin = async () => {
+    const handleForget = async () => {
 
         const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
         const isValidEmail = emailRegex.test(email)
@@ -48,7 +48,7 @@ const ForgetPassword = () => {
 
     const handleEnter = (e) => {
         if (e.key === 'Enter') {
-            handleLogin()
+            handleForget()
         }
     }
 
@@ -75,7 +75,7 @@ const ForgetPassword = () => {
                     <label>Email</label>
                     <input type="text" placeholder="Email" onKeyDown={(e) => handleEnter(e)} onChange={(e) => setEmail(e.target.value)} />
                     {err && <p className="login_err">{err}</p>}
-                    <button className={btnClass} onMouseEnter={handleHover} onClick={handleLogin} disabled={isDisabled}>SEND EMAIL</button>
+                    <button className={btnClass} onMouseEnter={handleHover} onClick={handleForget} disabled={isDisabled}>SEND EMAIL</button>
                 </div>
             </div>
         </div>

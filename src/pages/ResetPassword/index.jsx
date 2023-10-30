@@ -1,51 +1,52 @@
 import { useState } from "react"
-// import { HttpService } from '../../services/HttpService'
+import { HttpService } from '../../services/HttpService'
+import { useParams } from "react-router-dom"
+import { alert } from "../../helpers"
  
 const ResetPassword = () => {
 
-    // const httpService = new HttpService()
-    const [email, setEmail] = useState('')
+    const httpService = new HttpService()
     const [pass, setPass] = useState('')
+    const [confirmPass, setConfirmPass] = useState('')
     const [err, setErr] = useState(false)
     const [btnClass, setBtnClass] = useState('')
+    const {token} = useParams()
 
-    const handleLogin = async () => {
+    const handleReset = async () => {
 
-        if (email === 'admin' && pass === 'ADMIN') {
-            localStorage.setItem('isLoggedIn', true)
-            window.location.reload()
+        if (pass.length < 6) {
+            setErr('Password should be atleast 6 characters')
+        }
+        else if (pass !== confirmPass) {
+            setErr('Confirm password should be same')
         }
         else {
-            setErr('Login Failed')
+            const data = {
+                resetPasswordLink: token,
+                newPassword: pass
+            }
+
+            try {
+                const response = await httpService.resetPassword(data)
+                if (response.data.status === 'Success') {
+                    alert('success', 'Password Reset Successfully!')
+                }
+            }
+            catch(error) {
+                if (error?.response?.data?.status === 'Failed') {
+                    alert('error', 'Invalid or Expired Token')
+                }
+                else {
+                    console.log('error in reset password', error)
+                    alert('error', 'Something Went Wrong')
+                }
+            }
         }
-
-        // const data = {
-        //     username: email,
-        //     password: pass
-        // }
-
-        // try {
-        //     const response = await httpService.login(data)
-        //     if (response.data.message === 'Login successful') {
-        //         localStorage.setItem('isLoggedIn', true)
-        //         localStorage.setItem('token', response.data.token)
-        //         window.location.reload()
-        //     }
-        // }
-        // catch(error) {
-        //     if (error?.response?.data?.message === 'Login failed') {
-        //         setErr(error.response.data.message)
-        //     }
-        //     else {
-        //         console.log('error in login', error)
-        //         setErr('Something Went Wrong')
-        //     }
-        // }
     }
 
     const handleEnter = (e) => {
         if (e.key === 'Enter') {
-            handleLogin()
+            handleReset()
         }
     }
 
@@ -59,7 +60,7 @@ const ResetPassword = () => {
             }
         }
 
-        if (!pass || !email) {
+        if (!pass || !confirmPass) {
             toggleClass()
         }
     }
@@ -72,9 +73,9 @@ const ResetPassword = () => {
                     <label>New Password</label>
                     <input type="password" placeholder="Password" onKeyDown={(e) => handleEnter(e)} onChange={(e) => setPass(e.target.value)} />
                     <label>Re-enter New Password</label>
-                    <input type="password" placeholder="Password" onKeyDown={(e) => handleEnter(e)} onChange={(e) => setPass(e.target.value)} />
+                    <input type="password" placeholder="Password" onKeyDown={(e) => handleEnter(e)} onChange={(e) => setConfirmPass(e.target.value)} />
                     {err && <p className="login_err">{err}</p>}
-                    <button className={btnClass} onMouseEnter={handleHover} onClick={handleLogin} >RESET</button>
+                    <button className={btnClass} onMouseEnter={handleHover} onClick={handleReset} >RESET</button>
                 </div>
             </div>
         </div>
