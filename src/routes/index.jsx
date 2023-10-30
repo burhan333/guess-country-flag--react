@@ -28,7 +28,7 @@ export const MyRoutes = () => {
                     {!isLoggedIn && <Route path="/login" element={<Login />} />}
                     {!isLoggedIn && <Route path="/signup" element={<Signup />} />}
                     {!isLoggedIn && <Route path="/forget" element={<ForgetPassword />} />}
-                    {!isLoggedIn && <Route path="/reset" element={<ResetPassword />} />}
+                    {!isLoggedIn && <Route path="/reset/:token" element={<ResetPassword />} />}
                     {isLoggedIn && <Route path="/profile" element={<Profile />} />}
                     <Route path="/leaderboard" element={<Leaderboard />} />
                     <Route path="*" element={isLoggedIn ? <Navigate to="/home" replace /> : <Navigate to="/" replace />} />

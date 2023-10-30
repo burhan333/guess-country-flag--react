@@ -48,7 +48,7 @@ const Signup = () => {
                 }
                 else {
                     alert('error', 'Something Went Wrong')
-                    console.log('error in login', error?.response?.data)
+                    console.log('error in signup', error?.response?.data)
                 }
             }
         }

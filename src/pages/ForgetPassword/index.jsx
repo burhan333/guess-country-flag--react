@@ -7,6 +7,7 @@ const ForgetPassword = () => {
     const httpService = new HttpService()
     const [email, setEmail] = useState('')
     const [err, setErr] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(false)
     const [btnClass, setBtnClass] = useState('')
 
     const handleLogin = async () => {
@@ -19,6 +20,7 @@ const ForgetPassword = () => {
         }
 
         else {
+            setIsDisabled(true)
             const data = {
                 email
             }
@@ -27,16 +29,18 @@ const ForgetPassword = () => {
                 const response = await httpService.forgetPassword(data)
                 if (response.data.status === 'Success') {
                     alert('success', 'Verification email sent to your email address', 10000)
+                    setIsDisabled(false)
                 }
             }
             catch(error) {
-                console.log('error in login', error)
                 if (error?.response?.data?.message === 'Invalid Email') {
                     alert('error', 'Email does not exist')
+                    setIsDisabled(false)
                 }
                 else {
-                    console.log('error in login', error)
+                    console.log('error in forget password', error)
                     setErr('Something Went Wrong')
+                    setIsDisabled(false)
                 }
             }
         }
@@ -71,7 +75,7 @@ const ForgetPassword = () => {
                     <label>Email</label>
                     <input type="text" placeholder="Email" onKeyDown={(e) => handleEnter(e)} onChange={(e) => setEmail(e.target.value)} />
                     {err && <p className="login_err">{err}</p>}
-                    <button className={btnClass} onMouseEnter={handleHover} onClick={handleLogin}>SEND EMAIL</button>
+                    <button className={btnClass} onMouseEnter={handleHover} onClick={handleLogin} disabled={isDisabled}>SEND EMAIL</button>
                 </div>
             </div>
         </div>
