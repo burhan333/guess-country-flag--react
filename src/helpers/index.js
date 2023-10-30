@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
 export const alert = (type, msg, autoCloseTime) => {
-    console.log('run alert');
     if (type === 'success') {
         toast.success(msg, {
             position: 'top-right',
