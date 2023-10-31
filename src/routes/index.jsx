@@ -10,6 +10,7 @@ const ForgetPassword = lazy(() => import('../pages/ForgetPassword'))
 const ResetPassword = lazy(() => import('../pages/ResetPassword'))
 const Profile = lazy(() => import('../pages/Profile'))
 const Leaderboard = lazy(() => import('../pages/Leaderboard'))
+const VerifyEmail = lazy(() => import('../pages/VerifyEmail'))
 
 // const Welcome = lazy(() => {
 //     return new Promise(resolve => {
@@ -22,13 +23,14 @@ export const MyRoutes = () => {
     return(
         <BrowserRouter>
             <Suspense fallback={<Loader/>}>
-                <Routes>
+                <Routes> 
                     <Route path="/" element={<Welcome />} />
                     <Route path="/home" element={<Home />} />
                     {!isLoggedIn && <Route path="/login" element={<Login />} />}
                     {!isLoggedIn && <Route path="/signup" element={<Signup />} />}
                     {!isLoggedIn && <Route path="/forget" element={<ForgetPassword />} />}
                     {!isLoggedIn && <Route path="/reset/:token" element={<ResetPassword />} />}
+                    {!isLoggedIn && <Route path="/verify" element={<VerifyEmail />} />}
                     {isLoggedIn && <Route path="/profile" element={<Profile />} />}
                     <Route path="/leaderboard" element={<Leaderboard />} />
                     <Route path="*" element={isLoggedIn ? <Navigate to="/home" replace /> : <Navigate to="/" replace />} />

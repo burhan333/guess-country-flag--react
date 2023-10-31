@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { HttpService } from '../../services/HttpService'
 import { alert } from "../../helpers"
  
@@ -11,6 +11,7 @@ const Signup = () => {
     const [pass, setPass] = useState('')
     const [err, setErr] = useState(false)
     const [btnClass, setBtnClass] = useState('')
+    const navigate = useNavigate()
 
     const handleSignup = async () => {
         setErr('')
@@ -39,7 +40,8 @@ const Signup = () => {
             try {
                 const response = await httpService.signup(data)
                 if (response.data.status === 'Success') {
-                    alert('success', 'Registered successfully, Go to login page to continue', 10000)
+                    alert('success', 'OTP has been sent to your email', 10000)
+                    navigate('/verify')
                 }
             }
             catch(error) {

@@ -44,6 +44,9 @@ const Login = () => {
                 if (error?.response?.data?.message === 'Auth Failed') {
                     alert('error', 'Invalid email or password')
                 }
+                else if (error?.response?.data?.message === 'Email is not Verified') {
+                    alert('error', 'Kindly Verify your email first')
+                }
                 else {
                     console.log('error in login', error)
                     alert('error', 'Something Went Wrong')

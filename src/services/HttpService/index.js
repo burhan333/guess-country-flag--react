@@ -26,4 +26,9 @@ export class HttpService {
         const response = axios.post(`${API_URL}/auth/resetPassword`, data)
         return response
     }
+
+    verifyOTP = (data) => {
+        const response = axios.post(`${API_URL}/auth/verifyOTP`, data)
+        return response
+    }
 }
