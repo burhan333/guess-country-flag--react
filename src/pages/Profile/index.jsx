@@ -1,6 +1,7 @@
 import EditProfileModal from "../../components/Modals/EditProfileModal"
 import ConfirmModal from "../../components/Modals/ConfirmModal"
 import UserHistoryModal from "../../components/Modals/UserHistoryModal"
+import Navbar from "../../components/Navbar"
 
 const Profile = () => {
     return(
@@ -8,6 +9,7 @@ const Profile = () => {
             {/* <EditProfileModal /> */}
             {/* <ConfirmModal /> */}
             {/* <UserHistoryModal /> */}
+            <Navbar />
             <p className="profile_title">PROFILE</p>
             <div className="profile_body">
                 <div className="profile_info">

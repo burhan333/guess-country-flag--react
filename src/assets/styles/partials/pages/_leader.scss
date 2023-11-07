@@ -8,6 +8,7 @@
     {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     &_title
@@ -35,9 +36,14 @@
         color: $secondary;
     }
 
+    &_head > div > p:first-child
+    {
+        margin-right: 20px;
+    }
+
     &_colum
     {
-        width: 100%;
+        width: 33%;
         padding: 20px;
     }
 
@@ -48,9 +54,24 @@
         border-top: 1px solid lightgrey;
         padding: 8px 0;
     }
+
+    &_sno
+    {
+        margin-right: 12px;
+        width: 30px;
+        font-size: 12px;
+    }
+
+    &_name
+    {
+        width: 220px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 }
 
-@media (max-width: 575px)
+@media (max-width: 767px)
 {
     .leader
     {
@@ -58,6 +79,7 @@
 
         &_colum
         {
+            width: 100%;
             padding: 20px 5px;
         }
     }

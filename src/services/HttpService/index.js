@@ -31,4 +31,9 @@ export class HttpService {
         const response = axios.post(`${API_URL}/auth/verifyOTP`, data)
         return response
     }
+
+    getTopScore = () => {
+        const response = axios.get(`${API_URL}/score/getTopScore`)
+        return response
+    }
 }
