@@ -41,7 +41,7 @@ const Leaderboard = () => {
                         <p>Score</p>
                     </div>
                     {scores?.easy?.map((item, index) => (
-                        <div className="leader_row">
+                        <div className="leader_row" key={index}>
                             <div className="d-flex align-items-center">
                                 <p className="leader_sno">{index+1}</p>
                                 <p>{item.name}</p>
@@ -60,7 +60,7 @@ const Leaderboard = () => {
                         <p>Score</p>
                     </div>
                     {scores?.medium?.map((item, index) => (
-                        <div className="leader_row">
+                        <div className="leader_row" key={index}>
                             <div className="d-flex align-items-center">
                                 <p className="leader_sno">{index+1}</p>
                                 <p>{item.name}</p>
@@ -79,7 +79,7 @@ const Leaderboard = () => {
                         <p>Score</p>
                     </div>
                     {scores?.hard?.map((item, index) => (
-                        <div className="leader_row">
+                        <div className="leader_row" key={index}>
                             <div className="d-flex align-items-center">
                                 <p className="leader_sno">{index+1}</p>
                                 <p>{item.name}</p>
