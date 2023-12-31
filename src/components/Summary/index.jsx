@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { HttpService } from '../../services/HttpService'
 import { connect } from "react-redux"
+import { alert } from "../../helpers"
 import Navbar from "../Navbar"
 
 const Summary = (props) => {
@@ -29,7 +30,7 @@ const Summary = (props) => {
         const data = {
             _id: id,
             levelType,
-            score: props.score
+            score
         }
 
         if (id) {
@@ -40,9 +41,14 @@ const Summary = (props) => {
                 }
             }
             catch(error) {
+                alert('error', 'Something Went Wrong')
                 console.log('error in updating user score', error);
                 setIsDisabled(false)
             }
+        }
+        else
+        {
+            setIsDisabled(false)
         }
     }
 

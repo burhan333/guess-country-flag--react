@@ -39,32 +39,32 @@ export class HttpService {
     }
 
     updateUserScore = (data) => {
-        const response = axios.post(`${API_URL}/user/updateUserScore`, data, {headers})
+        const response = axios.patch(`${API_URL}/user/updateUserScore`, data, {headers})
         return response
     }
 
     resetUserScore = (data) => {
-        const response = axios.post(`${API_URL}/user/resetUserScore`, data)
+        const response = axios.post(`${API_URL}/user/resetUserScore`, data, {headers})
         return response
     }
 
     editUserProfile = (data) => {
-        const response = axios.post(`${API_URL}/user/editUserProfile`, data)
+        const response = axios.post(`${API_URL}/user/editUserProfile`, data, {headers})
         return response
     }
 
     getUserProfile = (data) => {
-        const response = axios.post(`${API_URL}/user/getUserProfile`, data)
+        const response = axios.post(`${API_URL}/user/getUserProfile`, data, {headers})
         return response
     }
 
     getUserHistory = (data) => {
-        const response = axios.post(`${API_URL}/user/getUserHistory`, data)
+        const response = axios.post(`${API_URL}/user/getUserHistory`, data, {headers})
         return response
     }
     
     clearUserHistory = (data) => {
-        const response = axios.post(`${API_URL}/user/clearUserHistory`, data)
+        const response = axios.post(`${API_URL}/user/clearUserHistory`, data, {headers})
         return response
     }
 }
