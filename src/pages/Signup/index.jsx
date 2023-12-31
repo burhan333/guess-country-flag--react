@@ -16,7 +16,7 @@ const Signup = () => {
     const handleSignup = async () => {
         setErr('')
         const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
-        const nameRegex = /^[A-Za-z'\-]+$/
+        const nameRegex = /^[A-Za-z '\-]+$/
         const isValidEmail = emailRegex.test(email)
         const isValidName = nameRegex.test(name)
 

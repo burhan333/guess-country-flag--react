@@ -16,7 +16,6 @@ const Leaderboard = () => {
         try {
             const response = await httpService.getTopScore()
             if (response.data.status === 'Success') {
-                console.log('response', response);
                 setScores(response.data.data)
             }
         }

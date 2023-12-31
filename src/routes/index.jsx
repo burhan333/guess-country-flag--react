@@ -24,8 +24,8 @@ export const MyRoutes = () => {
         <BrowserRouter>
             <Suspense fallback={<Loader/>}>
                 <Routes> 
-                    <Route path="/" element={<Welcome />} />
                     <Route path="/home" element={<Home />} />
+                    {!isLoggedIn && <Route path="/" element={<Welcome />} />}
                     {!isLoggedIn && <Route path="/login" element={<Login />} />}
                     {!isLoggedIn && <Route path="/signup" element={<Signup />} />}
                     {!isLoggedIn && <Route path="/forget" element={<ForgetPassword />} />}
